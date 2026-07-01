@@ -1,0 +1,44 @@
+.breed {
+    color: #f8047a !important;
+}
+.about {
+    color: #6C0820 !important;
+}
+
+.description {
+    color: #f8047a !important;
+    font-weight: 500 !important;
+}
+
+.alert {
+    background-color: #0a777ac4 !important;
+    border-radius: 15px !important;
+}
+.owner {
+    color: #FDF9FA !important;
+    font-size: 20px;
+}
+
+.backBtn {
+    color: #6C0820 !important; 
+    font-weight: 500 !important;
+    border: 3px solid #6C0820 !important;
+}
+
+.backBtn:hover {
+    background-color: #6C0820 !important;
+    color: #FDF9FA !important;
+}
+
+.editBtn {
+    color: #FDF9FA !important; 
+    background-color: #522196 !important;
+    font-weight: 600 !important;
+    border: 3px solid #522196 !important;
+}
+
+.editBtn:hover {
+    color: #522196 !important;
+    font-weight: 600;
+    background-color: #FDF9FA !important;
+}

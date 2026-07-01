@@ -1,0 +1,75 @@
+<% layout("/layouts/boilerplate") %>
+// user profile page
+
+<div class="usr container text-center">
+    <div class="divImage">
+        <img src="/images/profile_kitty.jpg" alt="Cute CuddleKitty Banner" class="profileKitty" />
+    </div>
+    <div class="divUserName">
+        <h1> Hello <%= currentUser.username %></h1>
+    </div>
+    <div class="divUserName">
+        <h5> Email Id : <%= currentUser.email %></h5>
+    </div>
+
+    <div class="divForm">
+    <% if (currentUser.formCnt == 0){ %>
+
+    <div class="container mt-5" style="max-width: 600px;">
+    <h2 class="mb-4">Update Profile Details</h2>
+    <form class="row g-3" method="POST" action="/register/<%= currentUser._id %>?_method=PUT"  >
+        <div class="col-md-4">
+          <label for="validationCustom01" class="form-label">Age :</label>
+          <input type="text" class="form-control" id="validationCustom01" name="age" placeholder="your age" required>
+           <div class="valid-feedback">
+             Looks good!
+           </div>
+        </div>
+
+        <div class="col-md-4">
+          <label for="validationCustom01" class="form-label">Contact Number :</label>
+          <input type="text" class="form-control" id="validationCustom01" name="contact" placeholder="Mobile/Phone number" required>
+           <div class="valid-feedback">
+             Looks good!
+           </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="validationTextarea" class="form-label">Address</label>
+          <textarea class="form-control" id="validationTextarea" name="address" placeholder="Your Address" required></textarea>
+          <div class="invalid-feedback">
+             Please enter a address in the textarea.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="validationTextarea" class="form-label">Textarea</label>
+          <textarea class="form-control" id="validationTextarea" name="description" placeholder="Tell us about yourself.. Your proffession.. your hobbies.. what kind of kitties you like.. etc" required></textarea>
+          <div class="invalid-feedback">
+             Please enter a message in the textarea.
+          </div>
+        </div>
+
+        <div class="mb-3">
+           <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+
+    </form>
+    </div>
+
+
+
+    <% } %>
+
+    <% if (currentUser.formCnt >= 1){ %>
+        <h6>You have already submitted required form </h6>
+    <% } %> 
+    <div class="deleteBtn">
+      <form method="POST" action="/<%= currentUser._id %>/delete?_method=DELETE">
+        <button type="submit">Delete User</button>
+      </form>
+    </div>   
+  </div>
+
+    
+</div>

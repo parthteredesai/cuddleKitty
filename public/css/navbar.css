@@ -1,0 +1,166 @@
+
+.navBody {
+    padding-bottom: 0rem !important;
+    padding-top: 0.7rem !important;
+}
+
+.navBody2 {
+    background-color: #FD50F4 !important;
+    min-height: 4rem; 
+    border-radius: 2rem !important;
+    margin-left: 0.9rem !important;
+    margin-right: 0.7rem !important;
+    border: 5px solid #96D7D2;
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 20px !important;
+    padding: 0.5rem 1rem;
+}
+
+.mainLogo {
+    font-size: 2.2rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    color: #FDF9FA;
+}
+
+.brandName {
+    font-weight: 700;
+    font-size: 24px !important;
+    color: #FDF9FA !important;
+}
+
+
+.navElements {
+    padding-left: 0; 
+    text-align: center; 
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.navElements a {
+    color: #FDF9FA !important;
+    font-weight: 600;
+    display: block;
+    padding: 0.5rem 0;
+}
+
+.navElements a:hover {
+    color: #ffffff !important;
+}
+
+
+.div1, .div2, .div3 {
+    margin: 0.2rem 0;
+    padding: 0.5rem;
+    border-radius: 30px;
+}
+
+.div1:hover, .div2:hover, .div3:hover {
+    background-color: #51ACC5;
+}
+
+
+.div4 {
+    font-size: 28px;
+    margin-top: 0.4rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+    margin-left: 0; 
+}
+
+.div4 i {
+    font-size: 38px;
+    color: #FDF9FA;
+}
+
+.div4 i:hover {
+    color: #600296;
+}
+
+.div5 {
+    margin-top: 0.5rem;
+    margin-left: 0;
+    text-align: center; 
+    padding-bottom: 1rem;
+}
+
+.div5 button {
+    border-radius: 22px;
+    padding: 0.4rem 1.5rem;
+    color: #227E9D;
+    font-weight: 700;
+    border: none;
+    background-color: #FDF9FA;
+    width: 80%; 
+    max-width: 200px;
+}
+
+.div5 button:hover {
+    background-color: #600296;
+    color: #FDF9FA;
+}
+
+.navbar-toggler {
+    border-color: rgba(253, 249, 250, 0.5) !important;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23FDF9FA' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+
+@media (min-width: 992px) {
+    .navBody2 {
+        border-radius: 6rem !important;
+        height: 4rem;
+        padding: 0 1rem;
+    }
+
+    .brandName {
+        font-size: 27px !important;
+    }
+
+    .navElements {
+        padding-left: 5rem; 
+        display: flex;
+        align-items: center;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .navElements a {
+        padding: 0 1rem;
+        display: inline;
+    }
+
+    .div1, .div2, .div3 {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .div4 {
+        margin-left: auto; 
+        padding-top: 0.1rem;
+        padding-bottom: 0;
+    }
+
+    .div5 {
+        margin-top: 0;
+        margin-left: 1rem;
+        padding-bottom: 0;
+    }
+
+    .div5 button {
+        margin-top: 0;
+        width: auto;
+    }
+
+    .navbar-toggler {
+    position: relative;
+    z-index: 1050; 
+    cursor: pointer;
+    pointer-events: auto !important; 
+}
+}
+

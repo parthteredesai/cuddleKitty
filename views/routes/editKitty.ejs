@@ -1,0 +1,48 @@
+<%- layout('layouts/boilerplate') %>// hete we have imported all out basic boilerplate code to this pae
+//editKitty.ejs -> edit kitty page that renders a form
+
+<div class="form-container my-5">
+    <div class="text-center mb-4">
+        <i class="fa-solid fa-pen-to-square text-warning fs-1 mb-2"></i>
+        <h2 class="fw-bold text-dark">Edit <%= kitty.name %>'s Profile</h2>
+        <p class="text-muted">Modify any outdated information details below.</p>
+    </div>
+
+    <form class="row g-3" method="POST" action="/kitty/<%= kitty._id %>?_method=PUT">
+        
+        <div class="col-md-12">
+            <label for="kittyName" class="form-label">Kitty Name :</label>
+            <input type="text" class="form-control" id="kittyName" name="name" value="<%= kitty.name %>" required>
+            <div class="invalid-feedback">Please provide a name for the kitty.</div>
+        </div>
+
+        <div class="col-md-7">
+            <label for="kittyBreed" class="form-label">Breed :</label>
+            <input type="text" class="form-control" id="kittyBreed" name="breed" value="<%= kitty.breed %>" required>
+            <div class="invalid-feedback">Please specify the breed.</div>
+        </div>
+
+        <div class="col-md-5">
+            <label for="kittyAge" class="form-label">Age (in years) :</label>
+            <input type="number" class="form-control" id="kittyAge" name="age" min="0" max="30" step="any" value="<%= kitty.age %>" required>
+            <div class="invalid-feedback">Please provide a valid age.</div>
+        </div>
+
+        <div class="col-md-12">
+            <label for="kittyImage" class="form-label">Image URL :</label>
+            <input type="url" class="form-control" id="kittyImage" name="image" value="<%= kitty.image %>">
+            <div class="invalid-feedback">Please provide a valid image URL starting with http:// or https://</div>
+        </div>
+
+        <div class="col-md-12">
+            <label for="kittyDescription" class="form-label">Description / Bio :</label>
+            <textarea class="form-control" id="kittyDescription" name="description" rows="4" required><%= kitty.description %></textarea>
+            <div class="invalid-feedback">Please write a small description for the kitty.</div>
+        </div>
+
+        <div class="col-12 d-flex gap-2 mt-4">
+            <button class="btn btn-warning text-white flex-grow-1" type="submit">Save Changes</button>
+            <a href="/kitty/<%= kitty._id %>" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+    </form>
+</div>

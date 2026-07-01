@@ -1,0 +1,12 @@
+.deleteBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.deleteBtn button {
+    margin-top: 0.5rem;
+    border: 2px solid #ef233c !important;
+    background-color: aliceblue;
+    color: #ef233c;
+    border-radius: 20px;
+}

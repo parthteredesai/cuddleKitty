@@ -1,0 +1,80 @@
+<% layout("/layouts/boilerplate") %>
+//homepage 
+<div class="text-center">
+    <h1 class="head1">Connecting Kitties with Their Forever Love</h1>
+</div>
+<h4 class="text-center head2">Welcome, @<%= currentUser.username %> </h4>
+
+<div class="filterDiv">
+    <form method="GET" action="/kitty">
+        <div class="mainFilter">
+            <div class="breed-filter-group">
+
+                <div class="choice-container">
+                    <input type="radio" id="all-breeds" name="breedChoice" value="all" checked />
+                    <label for="all-breeds" class="choice-label">All breeds</label>
+                </div>
+
+                <div class="choice-container">
+                    <input type="radio" id="breed-1" name="breedChoice" value="Tabby" />
+                    <label for="breed-1" class="choice-label">Tabby</label>
+                </div>
+
+                <div class="choice-container">
+                    <input type="radio" id="breed-2" name="breedChoice" value="Siamese" />
+                    <label for="breed-2" class="choice-label">Siamese</label>
+                </div>
+
+                <div class="choice-container">
+                    <input type="radio" id="breed-3" name="breedChoice" value="Persian" />
+                    <label for="breed-3" class="choice-label">Persian</label>
+                </div>
+
+            </div>
+            <div class="age">
+                <select name="kittyAge" class="kittyAge">
+                    <option value="" disabled selected>Maximum Age</option>
+                    <option value="3">Under 3 Months</option>
+                    <option value="6">Under 6 Months</option>
+                    <option value="12">Under 1 Year</option>
+                    <option value="24">Under 2 Years</option>
+                </select>
+            </div>
+            <button type="submit" class="filterSubmit">Apply Filters</button>
+        </div>
+    </form>
+</div>
+<div class="listBtns">
+    <div class="btnWrap">
+        <form method="GET" action="/kitty/new">
+            <button type="submit" class="listBtn">List Your Kitty</button>
+        </form>
+        <form method="GET" action="/kitty/yourList/<%= currentUser._id %>">
+            <button type="submit" class="yourListBtn">View Your Kitties</button>
+        </form>
+    </div>
+</div>
+<div class="text-center">
+  <h1 class="head3">Kitties Waiting For New Home</h1>
+</div>
+
+<div class="listings-grid">
+
+    <% for (let kitty of kitties) { %>
+        
+        <div class="card" style="width: 18rem;">
+          <img src="<%= kitty.image %>" class="card-img-top" alt="<%= kitty.name %>">
+          <div class="card-body">
+            <h5 class="card-title"> <i class="fa-solid fa-paw"></i> <%= kitty.name %> </h5>
+            <h6 class="listedBy"> <i class="fa-solid fa-image-portrait"></i> Listed By : <%= kitty.owner.username %> </h6>
+            <p class="card-text"> <%= kitty.description.length > 100 ? kitty.description.substring(0, 100) + '...' : kitty.description %> </p>
+            <form method="GET" action="/kitty/<%= kitty._id %>">
+              <button class="viewKittyBtn w-100">view kitty</button>
+            </form>
+          </div>
+        </div>        
+        
+    <% } %>
+
+</div>
+

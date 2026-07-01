@@ -1,0 +1,45 @@
+<%- layout('layouts/boilerplate') %>
+// view kitty page that shows indivisual kitty info 
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow border-0 rounded-4 overflow-hidden">
+                
+                <img src="<%= kitty.image || 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba' %>" 
+                     class="img-fluid object-fit-cover" style="max-height: 400px; width: 100%;" alt="<%= kitty.name %>">
+                
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h1 class="fw-bold m-0"><i class="fa-solid fa-paw"></i> <%= kitty.name %></h1>
+                        <span class="badge bg-primary fs-6 px-3 py-2 rounded-pill"><%= kitty.age %> Years Old</span>
+                    </div>
+
+                    <h5 class="breed"><strong>Breed:</strong> <%= kitty.breed %></h5>
+                    
+                    <hr>
+
+                    <h4 class="fw-bold mt-3 about">About this Kitty</h4>
+                    <p class="lead description"><%= kitty.description %></p>
+
+                    <% if(kitty.owner) { %>
+                        <div class="alert border mt-4 d-flex align-items-center gap-2">
+                            <span></span>
+                            <span class="owner"> <i class="fa-solid fa-circle-info"></i> Listed by: <strong><%= kitty.owner.username %></strong></span>
+                            <br>
+                            <span class="owner"> <i class="fa-solid fa-address-book"></i> Contact: <strong><%= kitty.owner.contact %></strong></span>
+                        </div>
+                    <% } %>
+
+                    <div class="d-flex gap-2 mt-4">
+                        <a href="/kitty" class="btn rounded-pill px-4 backBtn">Back to All Listings</a>
+                        
+                        <% if (currentUser && kitty.owner && kitty.owner._id.equals(currentUser._id)) { %>
+                            <a href="/kitty/edit/<%= kitty._id %>" class="btn  rounded-pill px-4 editBtn">Edit Listing</a>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

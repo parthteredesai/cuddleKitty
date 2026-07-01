@@ -1,0 +1,91 @@
+.usr {
+    display: flex;
+    flex-direction: column;
+    min-height: 25rem;
+}
+
+.divUsername {
+    text-align: center;
+}
+
+.divImage {
+    margin-top: 2rem !important;
+    border: 1.5px solid #4a5568;
+    height: 10rem;
+    width: 10rem;
+    overflow: hidden; 
+    border-radius: 50%; 
+    margin: 0 auto 1.5rem auto;
+}
+
+
+.profileKitty {
+    width: 100%;       
+    height: 100%;      
+    object-fit: cover; 
+    object-position: center; 
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    max-width: 650px;
+    margin: 2rem auto;
+}
+
+.form-container .form-label {
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+
+.form-container .form-control[type="text"] {
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px; 
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease-in-out;
+    background-color: #f8fafc;
+}
+
+
+.form-container textarea.form-control {
+    border: 1.5px solid #e2e8f0;
+    border-radius: 0px !important; 
+    padding: 0.75rem 1rem;
+    min-height: 120px; 
+    resize: vertical; 
+    background-color: #f8fafc;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-container .form-control:focus {
+    background-color: #ffffff;
+    border-color: #667eea; 
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+    outline: none;
+}
+
+.form-container .invalid-feedback {
+    font-size: 0.85rem;
+    margin-top: 0.4rem;
+    font-weight: 500;
+}
+
+.form-container .btn-primary {
+    background-color: #667eea;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.form-container .btn-primary:hover {
+    background-color: #5a67d8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(90, 103, 216, 0.25);
+}

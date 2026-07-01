@@ -1,0 +1,17 @@
+/* to make footer stay below */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.mainBody {
+    margin: 0.7rem;
+    margin-top: 5rem;
+    flex: 1 0 auto;
+    /* background: linear-gradient(to bottom, #75a9fd 0%, #121b40 100%); */
+    background-color: rgb(231, 255, 255); 
+}
