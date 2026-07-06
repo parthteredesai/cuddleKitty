@@ -1,8 +1,4 @@
 
-# Project Title
-
-A brief description of what this project does and who it's for
-
 # cuddleKitty 🐾
 
 Welcome to **cuddleKitty**! [cite_start]Follow the steps below to quickly clone, install, and run the project locally on your machine[cite: 1].
