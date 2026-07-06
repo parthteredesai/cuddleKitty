@@ -20,7 +20,10 @@ router.get("/login", authController.renderLoginPage);
 router.get("/logout",authController.logoutUser);
 
 //post request that authenticate user
-router.post("/login", authController.loginUser);
+router.post("/login", (req, res, next) => {
+    console.log("Login request body:", req.body);
+    next();
+}, authController.loginUser);
 
 //post User.reister(user(req.body), password) method
 router.post("/register", authController.registerUser);

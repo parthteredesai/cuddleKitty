@@ -1,5 +1,6 @@
 const Kitty = require("../models/Kitty.js");
 const ExpressError = require("../utils/ExpressError");
+const axios = require("axios");
 
 // "/kitty/" homepage route -> renders kittyListings.ejs 
 module.exports.index = async (req, res) => {
@@ -72,16 +73,56 @@ module.exports.showYourList = async (req, res, next) => {
 };
 
 // "/kitty/:id(kitty._id)" -> renders viewKitty.ejs with kitty id as parameter
+// "/kitty/:id" -> renders viewKitty.ejs with AI generated description
+
 module.exports.viewKitty = async (req, res, next) => {
+
     const { id } = req.params;
 
-    const kitty = await Kitty.findById(id).populate('owner');
+    try {
 
-    if (!kitty) {
-        return next(new ExpressError("Oops! That kitty profile does not exist.", 404));
+        const kitty = await Kitty.findById(id).populate("owner");
+
+        if (!kitty) {
+            return next(new ExpressError("Oops! That kitty profile does not exist.", 404));
+        }
+
+        let aiDescription = "";
+
+        try {
+
+            const response = await axios.post(
+                "http://127.0.0.1:8000/generate-description",
+                {
+                    name: kitty.name,
+                    breed: kitty.breed,
+                    age: kitty.age,
+                    description: kitty.description
+                }
+            );
+
+            aiDescription = response.data.description;
+
+        } catch (err) {
+
+              console.log("Status:", err.response?.status);
+              console.log("Error:", err.response?.data);
+
+             aiDescription = kitty.description;
+
+        }
+
+        res.render("./routes/viewKitty.ejs", {
+            kitty,
+            aiDescription
+        });
+
+    } catch (err) {
+
+        next(err);
+
     }
 
-    res.render("./routes/viewKitty.ejs", { kitty });
 };
 
 // "/kitty/edit/:id(kitty._id)" -> renders editKitty.ejs along with kitty id as parameter 

@@ -42,3 +42,35 @@
     font-weight: 600;
     background-color: #FDF9FA !important;
 }
+
+.ai-card{
+
+    margin-top:20px;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    background:#fff7ef;
+
+    border:2px solid #ffd7b3;
+
+}
+
+.ai-description{
+
+    white-space:pre-wrap;
+
+    line-height:1.7;
+
+    font-size:16px;
+
+    color:#444;
+
+}
+
+.owner-card{
+
+    margin-top:25px;
+
+}

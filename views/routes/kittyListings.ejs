@@ -78,3 +78,242 @@
 
 </div>
 
+<!-- ================= PAWBOT ================= -->
+
+<div id="pawbot-button">
+
+    🐾
+
+</div>
+
+<div id="pawbot-window">
+
+    <div class="pawbot-header">
+
+        <div>
+
+            🐱 PawBot
+
+            <small>Your AI Cat Assistant</small>
+
+        </div>
+
+        <button id="close-chat">
+
+            ✕
+
+        </button>
+
+    </div>
+
+    <div id="chat-area">
+
+        <div class="bot-message">
+
+            Hello 👋
+
+            <br><br>
+
+            I'm PawBot!
+
+            Ask me anything about:
+
+            <br>
+
+            🩺 Cat Health
+
+            <br>
+
+            🥣 Food
+
+            <br>
+
+            💉 Vaccinations
+
+            <br>
+
+            ❤️ Adoption
+
+        </div>
+
+    </div>
+
+    <div class="chat-input">
+
+        <input
+            id="chat-input"
+            placeholder="Ask PawBot..."
+        >
+
+        <button id="send-btn">
+
+            ➜
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ================= AI MATCH FLOATING BANNER ================= -->
+
+<div id="match-banner">
+
+    <div class="match-glow"></div>
+
+    <div id="match-card">
+
+        <div class="match-title">
+
+            ✨ AI MATCHMAKER
+
+        </div>
+
+        <div class="match-subtitle">
+
+            Find My Perfect Cat
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= POPUP ================= -->
+
+<div id="match-overlay">
+
+    <div id="match-popup">
+
+        <button id="close-match">
+
+            ✖
+
+        </button>
+
+        <h2>
+
+            🐾 AI Cat Matchmaker
+
+        </h2>
+
+        <p>
+
+            Tell me about yourself and I'll recommend your ideal companion.
+
+        </p>
+
+ <form id="match-form">
+
+    <!-- HOME -->
+    <label>🏠 What type of home do you live in?</label>
+    <div class="option-group">
+        <button type="button" data-name="home" data-value="Apartment">Apartment</button>
+        <button type="button" data-name="home" data-value="House">House</button>
+        <button type="button" data-name="home" data-value="Farm/Rural">Farm/Rural</button>
+    </div>
+
+    <!-- KIDS -->
+    <label>👶 Do you have children at home?</label>
+    <div class="option-group">
+        <button type="button" data-name="kids" data-value="No Children">No</button>
+        <button type="button" data-name="kids" data-value="Infants (0-3 years)">0-3 Years</button>
+        <button type="button" data-name="kids" data-value="Young Children (4-10 years)">4-10 Years</button>
+        <button type="button" data-name="kids" data-value="Teenagers">Teenagers</button>
+    </div>
+
+    <!-- PETS -->
+    <label>🐶 Do you already have pets?</label>
+    <div class="option-group">
+        <button type="button" data-name="pets" data-value="None">None</button>
+        <button type="button" data-name="pets" data-value="Dog">Dog</button>
+        <button type="button" data-name="pets" data-value="Cat">Cat</button>
+        <button type="button" data-name="pets" data-value="Dog and Cat">Dog & Cat</button>
+        <button type="button" data-name="pets" data-value="Multiple Pets">Multiple Pets</button>
+    </div>
+
+    <!-- TIME -->
+    <label>⏰ How much time can you spend with your cat each day?</label>
+    <div class="option-group">
+        <button type="button" data-name="time" data-value="Less than 1 hour">Less than 1 hour</button>
+        <button type="button" data-name="time" data-value="1-3 hours">1-3 hours</button>
+        <button type="button" data-name="time" data-value="3-5 hours">3-5 hours</button>
+        <button type="button" data-name="time" data-value="More than 5 hours">More than 5 hours</button>
+    </div>
+
+    <!-- BUDGET -->
+    <label>💰 Monthly budget for your cat?</label>
+    <div class="option-group">
+        <button type="button" data-name="budget" data-value="Below ₹2,000">Below ₹2,000</button>
+        <button type="button" data-name="budget" data-value="₹2,000-₹5,000">₹2k-₹5k</button>
+        <button type="button" data-name="budget" data-value="₹5,000-₹10,000">₹5k-₹10k</button>
+        <button type="button" data-name="budget" data-value="Above ₹10,000">Above ₹10k</button>
+    </div>
+
+    <!-- PERSONALITY -->
+    <label>🎯 What personality are you looking for?</label>
+    <div class="option-group">
+        <button type="button" data-name="personality" data-value="Affectionate">Affectionate ❤️</button>
+        <button type="button" data-name="personality" data-value="Playful">Playful ⚽</button>
+        <button type="button" data-name="personality" data-value="Independent">Independent 😼</button>
+        <button type="button" data-name="personality" data-value="Curious">Curious 🔍</button>
+        <button type="button" data-name="personality" data-value="Gentle">Gentle 🌸</button>
+        <button type="button" data-name="personality" data-value="Talkative">Talkative 🗣️</button>
+        <button type="button" data-name="personality" data-value="Lazy">Relaxed 😴</button>
+    </div>
+
+    <!-- ENERGY -->
+    <label>😴 Preferred energy level?</label>
+    <div class="option-group">
+        <button type="button" data-name="energy" data-value="Very Calm">Very Calm</button>
+        <button type="button" data-name="energy" data-value="Moderately Active">Balanced</button>
+        <button type="button" data-name="energy" data-value="Highly Energetic">Very Playful</button>
+    </div>
+
+    <!-- AGE -->
+    <label>🐈 Preferred age?</label>
+    <div class="option-group">
+        <button type="button" data-name="age" data-value="Kitten">Kitten (0-1 yr)</button>
+        <button type="button" data-name="age" data-value="Young Adult">Young (1-3 yrs)</button>
+        <button type="button" data-name="age" data-value="Adult">Adult (3-8 yrs)</button>
+        <button type="button" data-name="age" data-value="Senior">Senior (8+ yrs)</button>
+        <button type="button" data-name="age" data-value="No Preference">No Preference</button>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <label>❤️ Experience with cats?</label>
+    <div class="option-group">
+        <button type="button" data-name="experience" data-value="First-time Owner">First Time Owner</button>
+        <button type="button" data-name="experience" data-value="Owned 1-2 Cats">Some Experience</button>
+        <button type="button" data-name="experience" data-value="Experienced Owner">Experienced</button>
+        <button type="button" data-name="experience" data-value="Rescue Volunteer">Rescue Volunteer</button>
+    </div>
+
+    <!-- INDOOR -->
+    <label>🌳 Preferred lifestyle?</label>
+    <div class="option-group">
+        <button type="button" data-name="lifestyle" data-value="Indoor Only">Indoor Only</button>
+        <button type="button" data-name="lifestyle" data-value="Outdoor Access">Outdoor Access</button>
+        <button type="button" data-name="lifestyle" data-value="Indoor & Outdoor">Indoor & Outdoor</button>
+        <button type="button" data-name="lifestyle" data-value="No Preference">No Preference</button>
+    </div>
+
+    <!-- OPTIONAL -->
+    <label>💬 Anything else you'd like?</label>
+
+    <textarea
+        name="extraPreference"
+        rows="4"
+        placeholder="Example: I want a cuddly lap cat, one that is easy to train, quiet, good for my grandparents, etc."></textarea>
+
+    <button id="submit-match">
+        🐾 Find My Perfect Cat
+    </button>
+
+</form>
+
+        <div id="match-results" class="match-results"></div>
+
+    </div>
+
+</div>

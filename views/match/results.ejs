@@ -1,0 +1,23 @@
+<h1>Your AI Recommendations</h1>
+
+<% matches.forEach(match=>{ %>
+
+<div class="card">
+
+<h2><%= match.name %></h2>
+
+<h3>
+
+<%= match.score %>% Match
+
+</h3>
+
+<p>
+
+<%= match.reason %>
+
+</p>
+
+</div>
+
+<% }) %>

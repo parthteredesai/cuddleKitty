@@ -19,9 +19,13 @@
           <a class="nav-link active" aria-current="page" href="/kitty">Home</a>
         </li>
         
+        <% if (currentUser) { %>
         <li class="nav-item div2">
-          <a class="nav-link active" href="/kitty/yourList/<%= currentUser._id %>">Your Kitties</a>
+            <a class="nav-link active" href="/kitty/yourList/<%= currentUser._id %>">
+               Your Kitties
+            </a>
         </li>
+        <% } %>
         
         <li class="nav-item div3">
           <a class="nav-link active" href="/kitty/new">List Kitty</a>

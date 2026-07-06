@@ -19,7 +19,25 @@
                     <hr>
 
                     <h4 class="fw-bold mt-3 about">About this Kitty</h4>
-                    <p class="lead description"><%= kitty.description %></p>
+                    <div class="ai-card">
+
+    <h3>🐾 PawBot's Adoption Story</h3>
+
+    <p class="ai-description">
+        <%= aiDescription %>
+    </p>
+
+</div>
+
+<div class="owner-card">
+
+    <h4>Owner's Notes</h4>
+
+    <p>
+        <%= kitty.description %>
+    </p>
+
+</div>
 
                     <% if(kitty.owner) { %>
                         <div class="alert border mt-4 d-flex align-items-center gap-2">

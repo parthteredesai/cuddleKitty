@@ -34,7 +34,12 @@ const KittySchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    }
+    },
+    aidescription:{
+    type:String,
+    default:" "
+}
+
 });
 
 module.exports = mongoose.model('Kitty', KittySchema);

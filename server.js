@@ -10,8 +10,18 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const methodOverride = require('method-override');
 
+server.use(express.urlencoded({ extended: true }));
+server.use(express.json());
+
 //ExpressError
 const ExpressError = require("./utils/ExpressError.js");
+
+const chatbotRouter = require("./routes/chatbot");
+const matchRouter = require("./routes/matchRoutes");
+console.log("matchRouter =", matchRouter);
+console.log("type =", typeof matchRouter);
+server.use("/chatbot", chatbotRouter);
+server.use("/match", matchRouter);
 
 //init method-override
 server.use(methodOverride('_method'));
@@ -36,6 +46,9 @@ mongoose.connect(dbUrl)
     .then(() => console.log("cuddleKitty Database connected..!"))
     .catch(err => console.log("Database connection error:", err));
 
+mongoose.connection.once("open", () => {
+    console.log("Database Name:", mongoose.connection.name);
+});   
 //mongoose schema require
 const User = require("./models/User.js");
 const Kitty = require("./models/Kitty.js");
