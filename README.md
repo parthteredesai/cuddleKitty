@@ -194,9 +194,11 @@ uvicorn app:app --reload
 
 ### Home Page
 
-> Add screenshot here
-
----
+<p align="center">
+  <img src="images/dashboard.png" width="700">
+  <br>
+  <em>Solar Monitoring Dashboard</em>
+</p>
 
 ### Kitty Listings
 
