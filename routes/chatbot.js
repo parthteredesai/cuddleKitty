@@ -8,7 +8,7 @@ router.post("/", async (req, res) => {
 
     try {
 
-        await axios.post(
+        const response = await axios.post(
             `${process.env.FASTAPI_URL}/chat`,
             {
                 message: req.body.message
@@ -17,17 +17,17 @@ router.post("/", async (req, res) => {
 
         console.log("FastAPI Response:", response.data);
 
-        res.json(response.data);
+        return res.json(response.data);
 
     } catch (err) {
 
-         console.error("========== CHATBOT ERROR ==========");
-    console.error("Message:", err.message);
-    console.error("Status:", err.response?.status);
-    console.error("Data:", err.response?.data);
-    console.error("===================================");
+        console.error("========== CHATBOT ERROR ==========");
+        console.error("Message:", err.message);
+        console.error("Status:", err.response?.status);
+        console.error("Data:", err.response?.data);
+        console.error("===================================");
 
-        res.status(500).json({
+        return res.status(500).json({
             reply: "Sorry, PawBot is currently unavailable."
         });
 
