@@ -215,7 +215,7 @@ uvicorn app:app --reload
 ### PawBot Chatbot
 
 <p align="center">
-  <img src="/public/images/pawBot.png" height="500" width="500">
+  <img src="/public/images/pawBot.png" height="500" width="400">
   <br>
   <em>cuddleKitty AI Powered PawBot</em>
 </p>
@@ -225,7 +225,7 @@ uvicorn app:app --reload
 ### AI Matchmaking
 
 <p align="center">
-  <img src="/public/images/kittyMatchMaking.png" width="700">
+  <img src="/public/images/kittyMatchMaker.png" width="700">
   <br>
   <em>cuddleKitty AI supported matchmaking</em>
 </p>
