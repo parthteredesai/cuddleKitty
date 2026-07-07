@@ -2,6 +2,7 @@ import os
 import re
 import json
 from typing import Optional
+import traceback
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
@@ -208,6 +209,18 @@ def match_cats(data: MatchRequest):
 
     try:
 
+        # Send only required fields to Gemini
+        cats_for_ai = [
+            {
+                "id": cat.id,
+                "name": cat.name,
+                "breed": cat.breed,
+                "age": cat.age,
+                "description": cat.description
+            }
+            for cat in data.cats
+        ]
+
         prompt = f"""
 You are an expert cat adoption counselor.
 
@@ -219,14 +232,13 @@ USER PROFILE
 
 AVAILABLE CATS
 
-{json.dumps([cat.model_dump() for cat in data.cats], indent=2)}
+{json.dumps(cats_for_ai, indent=2)}
 
 Your task:
 
 Compare the user's lifestyle with every cat.
 
 Consider:
-
 - Personality
 - Age
 - Breed
@@ -243,66 +255,55 @@ Rank every cat from best match to worst match.
 
 Return ONLY the TOP 5 best matching cats.
 
-Do NOT return more than 5 cats.
-
-Format:
-
-{
-    "matches":[
-        {
-            "name":"",
-            "score":97,
-            "reason":""
-        }
-    ]
-}
-
-Example:
+The JSON format must be EXACTLY:
 
 {{
-    "matches":[
+    "matches": [
         {{
-            "id": "...",
-            "name":"Milo",
-            "score":96,
-            "reason":"Playful and affectionate. Perfect for apartment living."
-        }},
-        {{
-             "id": "...",
-            "name":"Luna",
-            "score":91,
-            "reason":"Calm personality suitable for families."
-        }},
-        {{
-             "id": "...",
-            "name":"Oreo",
-            "score":88,
-            "reason":"Independent and good for experienced owners."
+            "id": "",
+            "name": "",
+            "score": 97,
+            "reason": ""
         }}
     ]
 }}
 
-Return ONLY JSON.
+Rules:
+- Return ONLY JSON.
+- Do NOT use markdown.
+- Do NOT wrap the response in ```json.
+- Score should be between 0 and 100.
+- Reason should be 1-2 concise sentences.
 """
 
         response = model.generate_content(prompt)
 
-        text = response.text
+        print("\n========== RAW GEMINI RESPONSE ==========")
+        print(response)
+        print("=========================================")
 
+        text = response.text.strip()
+
+        print("\n========== RAW TEXT ==========")
+        print(text)
+        print("================================")
+
+        # Remove markdown if Gemini returns it
         text = text.replace("```json", "")
         text = text.replace("```", "")
         text = text.strip()
 
-        print("\nGemini Match Response:\n")
-        print(text)
+        result = json.loads(text)
 
-        return json.loads(text)
+        return result
 
     except Exception as e:
 
-        print("Matchmaking Error:", e)
+        print("\n========== MATCH ERROR ==========")
+        traceback.print_exc()
+        print("================================")
 
         raise HTTPException(
             status_code=500,
-            detail="Unable to generate AI matchmaking."
+            detail=str(e)
         )
