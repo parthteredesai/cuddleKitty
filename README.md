@@ -215,7 +215,7 @@ uvicorn app:app --reload
 ### PawBot Chatbot
 
 <p align="center">
-  <img src="/public/images/pawBot.png height="400" ">
+  <img src="/public/images/pawBot.png" height="500" width="500">
   <br>
   <em>cuddleKitty AI Powered PawBot</em>
 </p>
